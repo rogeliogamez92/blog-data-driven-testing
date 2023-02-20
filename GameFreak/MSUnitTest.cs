@@ -12,8 +12,8 @@ namespace GameFreak
             var pokemonData = new List<Tuple<string, string, Pokemon.PokemonType>>()
             {
                 new ("Bulbasaur", "Grass", Pokemon.PokemonType.Grass),
-                new ("Charmander", "FireError", Pokemon.PokemonType.Fire),
-                new ("Squirtle", "WaterError", Pokemon.PokemonType.Water),
+                new ("Charmander", "Fire", Pokemon.PokemonType.Fire),
+                new ("Squirtle", "Water", Pokemon.PokemonType.Water),
                 new ("ProfessorOak", "Human", Pokemon.PokemonType.UnsupportedType),
             };
 
@@ -28,8 +28,8 @@ namespace GameFreak
 
         [TestMethod]
         [DataRow("Bulbasaur", "Grass", Pokemon.PokemonType.Grass)]
-        [DataRow("Charmander", "FireError", Pokemon.PokemonType.Fire)]
-        [DataRow("Squirtle", "WaterError", Pokemon.PokemonType.Water)]
+        [DataRow("Charmander", "Fire", Pokemon.PokemonType.Fire)]
+        [DataRow("Squirtle", "Water", Pokemon.PokemonType.Water)]
         [DataRow("ProfessorOak", "Human", Pokemon.PokemonType.UnsupportedType)]
         public void UsingDataRow(string pokemonName, string pokemonType, Pokemon.PokemonType expectedPokemonType)
         {
@@ -49,8 +49,8 @@ namespace GameFreak
             new object[] { "ProfessorOak", "Human", Pokemon.PokemonType.UnsupportedType },
         };
 
-        //[TestMethod]
-        //[DynamicData(nameof(PokemonData))]
+        [TestMethod]
+        [DynamicData(nameof(PokemonData))]
         public void UsingDynamicData(string pokemonName, string pokemonType, Pokemon.PokemonType expectedPokemonType)
         {
             var pokemonFactory = new PokemonFactory();
